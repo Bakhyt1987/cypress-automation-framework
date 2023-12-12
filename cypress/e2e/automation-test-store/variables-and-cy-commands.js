@@ -30,10 +30,13 @@ describe("Inspect Automation Test Store items using chain of commands", () => {
         cy.contains("#ContactUsFrm","Contact Us Form").find("#field_11").should("contain","First name"); 
 
         //jquery approach
-
+        cy.contains("#ContactUsFrm","Contact Us Form").then(text => {
+            const firstNameText =  text.find("#field_11").text()
+            expect(firstNameText).to.contain("First name")
+        })
         //embedded commands
-
-
+ 
+ 
     });
 
 
