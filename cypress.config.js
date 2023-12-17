@@ -5,7 +5,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: "http://www.webdriveruniversity.com/Contact-Us/",
     video: true,
     testIsolation: false,
     specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}",
