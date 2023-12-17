@@ -33,12 +33,35 @@ describe("Alias and Invoke", () => {
     //     cy.log($el.text());
     //   });
     cy.get(".thumbnail").find(".oneprice").invoke("text").as("itemPrice");
+    cy.get(".thumbnail").find(".pricenew").invoke("text").as("saleItemPrice");
+
+    var itemTotal = 0;
     cy.get("@itemPrice").then(($linkText) => {
+      var itemPriceTotal = 0;
       var itemPrice = $linkText.split("$");
       var i;
       for (i = 0; i < itemPrice.length; i++) {
         cy.log(itemPrice[i]);
+        itemPriceTotal += Number(itemPrice[i]);
       }
+      itemTotal += itemPriceTotal;
+      cy.log("Non sale price items total: " + itemPriceTotal);
     });
+    cy.get("@saleItemPrice")
+      .then(($linkText) => {
+        var saleItemPriceTotal = 0;
+        var saleItemPrice = $linkText.split("$");
+        var i;
+        for (i = 0; i < saleItemPrice.length; i++) {
+          cy.log(saleItemPrice[i]);
+          saleItemPriceTotal += Number(saleItemPrice[i]);
+        }
+        itemTotal += saleItemPriceTotal;
+        cy.log("Sale price items total: " + saleItemPriceTotal);
+      })
+      .then(() => {
+        cy.log("Total price of all  products: " + itemTotal);
+        expect(itemTotal).to.equal(660.5);
+      });
   });
 });
