@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 describe("Traversing DOM elements in Cypress", () => {
-  before("Visit website", () => {
+  beforeEach(() => {
     cy.visit("https://webdriveruniversity.com/");
     cy.get("#data-table").invoke("removeAttr", "target").click({ force: true });
   });
@@ -87,7 +87,7 @@ describe("Traversing DOM elements in Cypress", () => {
     cy.get("#veggie").prevUntil("#fruits").should("have.length", 5);
   });
 
-  it.only("siblings() To get all sibling DOM elements of elements", () => {
+  it("siblings() To get all sibling DOM elements of elements", () => {
     cy.get(".traversal-button-other-states .active")
       .siblings()
       .should("have.length", "3");
