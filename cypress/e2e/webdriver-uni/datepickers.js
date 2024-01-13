@@ -15,7 +15,9 @@ describe("Test Datepicker via webdriveruni", () => {
     // cy.log(date2.getDate()) //get current day i.e. 22 + 5 = 27
 
     var date = new Date();
-    date.setDate(date.getDate() + 366);
+    cy.log("Date: " + date);
+
+    date.setDate(date.getDate() + 400);
 
     var futureYear = date.getFullYear();
     var futureMonth = date.toLocaleString("default", { month: "long" });
@@ -40,7 +42,7 @@ describe("Test Datepicker via webdriveruni", () => {
             .find(".datepicker-switch")
             .first()
             .then((currentDate) => {
-              if (currentDate.text().includes(futureMonth)) {
+              if (!currentDate.text().includes(futureMonth)) {
                 cy.get(".next").first().click();
                 selectMonthAndYear();
               }
@@ -49,7 +51,7 @@ describe("Test Datepicker via webdriveruni", () => {
     }
 
     function selectFutureDay() {
-      cy.get("[class='day']").contains(futureDay).click();
+      cy.get('[class="day"]').contains(futureDay).click();
     }
 
     selectMonthAndYear();
