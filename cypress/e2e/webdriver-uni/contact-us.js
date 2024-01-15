@@ -12,22 +12,24 @@ describe("Test Contact Us form via WebdriverUni", () => {
     cy.document().should("have.a.property", "charset").and("eq", "UTF-8");
     cy.title().should("include", "WebDriver | Contact Us");
     cy.url().should("include", "contactus");
-    cy.get('[name="first_name"]').type(data.first_name);
-    cy.get('[name="last_name"]').type(data.last_name);
-    cy.get('[name="email"]').type(data.email);
-    cy.get("textarea.feedback-input").type("How can i learn Cypress");
-    cy.get('[type="submit"]').click();
-    cy.get("#contact_reply > h1").should(
-      "have.text",
+    cy.webdriverUni_ContactForm_Submission(
+      data.first_name,
+      data.last_name,
+      data.email,
+      "How can i learn Cypress?",
+      "h1",
       "Thank You for your Message!"
     );
   });
 
-  it("Should be able to submit a successful submission via contact us form2", () => {
-    cy.get('[name="first_name"]').type(data.first_name);
-    cy.get('[name="last_name"]').type(data.last_name);
-    cy.get("textarea.feedback-input").type("How can i learn Cypress");
-    cy.get('[type="submit"]').click();
-    cy.get("body").contains("Error");
+  it("Should not be able to submit a successful submission via contact us form2", () => {
+    cy.webdriverUni_ContactForm_Submission(
+      data.first_name,
+      data.last_name,
+      " ",
+      "How can i learn Cypress?",
+      "body",
+      "Error: Invalid email address"
+    );
   });
 });
