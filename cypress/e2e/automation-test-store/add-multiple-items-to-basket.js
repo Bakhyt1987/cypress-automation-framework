@@ -16,5 +16,6 @@ describe("Add multiple items to basket", () => {
     globalThis.data.productName.forEach(function (element) {
       cy.addProductToBasket(element);
     });
+    cy.get(".dropdown-toggle > .fa").click();
   });
 });
