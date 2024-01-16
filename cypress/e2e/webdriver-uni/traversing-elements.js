@@ -2,7 +2,7 @@
 
 describe("Traversing DOM elements in Cypress", () => {
   beforeEach(() => {
-    cy.visit("https://webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#data-table").invoke("removeAttr", "target").click({ force: true });
   });
 

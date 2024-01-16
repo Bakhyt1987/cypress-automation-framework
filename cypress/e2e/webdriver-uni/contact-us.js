@@ -2,8 +2,9 @@
 
 describe("Test Contact Us form via WebdriverUni", () => {
   beforeEach(() => {
-    cy.visit("http://www.webdriveruniversity.com");
-    cy.get("#contact-us").invoke("removeAttr", "target").click({ force: true });
+    cy.visit(
+      Cypress.env("webdriveruni_homepage") + "Contact-Us/contactus.html"
+    );
     cy.fixture("example").then(function (data) {
       globalThis.data = data;
     });
@@ -13,7 +14,7 @@ describe("Test Contact Us form via WebdriverUni", () => {
     cy.title().should("include", "WebDriver | Contact Us");
     cy.url().should("include", "contactus");
     cy.webdriverUni_ContactForm_Submission(
-      data.first_name,
+      Cypress.env("first_name"),
       data.last_name,
       data.email,
       "How can i learn Cypress?",

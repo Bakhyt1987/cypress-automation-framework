@@ -5,13 +5,16 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    video: true,
-    // testIsolation: false,
     excludeSpecPattern: "cypress/e2e/other/*.js",
     specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}",
-    chromeWebSecurity: false,
-    experimentalSessionAndOrigin: true,
+    baseUrl: "https://www.webdriveruniversity.com",
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 12000,
+    videosFolder: "cypress/videos",
+    video: true,
+    env: {
+      first_name: "Sarah",
+      webdriveruni_homepage: "https://www.webdriveruniversity.com/",
+    },
   },
 });
