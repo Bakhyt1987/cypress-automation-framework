@@ -15,6 +15,7 @@ module.exports = defineConfig({
     env: {
       first_name: "Sarah",
       webdriveruni_homepage: "https://www.webdriveruniversity.com/",
+      autostore_homepage: "https://automationteststore.com/",
     },
   },
 });
