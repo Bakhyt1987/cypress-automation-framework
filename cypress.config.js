@@ -8,6 +8,7 @@ module.exports = defineConfig({
     excludeSpecPattern: "cypress/e2e/other/*.js",
     specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}",
     baseUrl: "https://www.webdriveruniversity.com",
+    chromeWebSecurity: false,
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 12000,
     videosFolder: "cypress/videos",
