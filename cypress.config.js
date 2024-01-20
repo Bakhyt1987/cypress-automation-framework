@@ -11,7 +11,11 @@ module.exports = defineConfig({
     chromeWebSecurity: false,
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 12000,
+    screenshotOnRunFailure: true,
+    trashAssetsBeforeRuns: true,
     videosFolder: "cypress/videos",
+    viewportHeight: 1080,
+    viewportWidth: 1920,
     video: true,
     env: {
       first_name: "Sarah",

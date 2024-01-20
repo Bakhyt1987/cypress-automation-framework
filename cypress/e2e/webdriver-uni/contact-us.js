@@ -10,7 +10,7 @@ describe("Test Contact Us form via WebdriverUni", () => {
 
   beforeEach(() => {
     homepage_PO.visitHomepage();
-    cy.wait(3000);
+    // cy.wait(3000);
     homepage_PO.clickOn_ContactUs_button();
     cy.fixture("example").then(function (data) {
       globalThis.data = data;

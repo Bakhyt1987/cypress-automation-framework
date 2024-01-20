@@ -10,6 +10,7 @@ describe("Test Contact Us form via Automation Test Store", () => {
         cy.log("Clicked on link using text: " + linkText.text());
       });
     cy.fixture("userDetails").as("user");
+    // cy.viewport(550, 750);
   });
   it("Should be able to submit a successful submission via contact us form", () => {
     // cy.xpath('//a[contains(@href,"contact")]').click()
