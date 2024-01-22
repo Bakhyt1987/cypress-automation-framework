@@ -8,6 +8,8 @@ describe("Add multiple items to basket", () => {
   const autoStore_HairCare_PO = new AutoStore_HairCare_PO();
 
   before(function () {
+    cy.clearLocalStorage();
+    cy.clearCookies();
     cy.fixture("products").then(function (data) {
       globalThis.data = data;
     });
