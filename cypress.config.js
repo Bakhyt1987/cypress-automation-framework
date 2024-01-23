@@ -19,6 +19,7 @@ module.exports = defineConfig({
     viewportHeight: 1080,
     viewportWidth: 1920,
     video: true,
+    videoUploadOnPasses: true,
     env: {
       first_name: "Sarah",
       webdriveruni_homepage: "https://www.webdriveruniversity.com/",
