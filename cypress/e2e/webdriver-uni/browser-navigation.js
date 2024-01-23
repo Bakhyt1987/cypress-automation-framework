@@ -8,7 +8,7 @@ describe("Validate WebdriverUni homepage links", () => {
 
     cy.go("back");
     cy.reload();
-    cy.url().should("include", "http://www.webdriveruniversity.com");
+    cy.url().should("include", "https://www.webdriveruniversity.com");
 
     cy.go("forward");
     cy.url().should("include", "contactus");
@@ -24,6 +24,6 @@ describe("Validate WebdriverUni homepage links", () => {
     cy.url().should("include", "To-Do-List");
 
     cy.go("back");
-    cy.url().should("include", "http://www.webdriveruniversity.com");
+    cy.url().should("include", "https://www.webdriveruniversity.com");
   });
 });

@@ -4,6 +4,7 @@
   "description": "Cypress Automation Framework",
   "main": "index.js",
   "scripts": {
+    "build": "rollup -c",
     "test": "cypress run"
   },
   "author": "Bakhyt Zhapparbergenov",
