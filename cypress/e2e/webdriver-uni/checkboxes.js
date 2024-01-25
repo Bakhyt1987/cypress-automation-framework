@@ -5,7 +5,7 @@ describe("Verify checkboxes via webdriveruni", () => {
     cy.navigateTo_WebdriverUni_Checkbox_Page();
   });
   it("Check and validate checkbox", () => {
-    cy.get("#checkboxes > :nth-child(1) > input222").as("option-1");
+    cy.get("#checkboxes > :nth-child(1) > input").as("option-1");
     cy.get("@option-1").check().should("be.checked");
   });
 
