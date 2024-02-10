@@ -1,31 +1,47 @@
 const { defineConfig } = require("cypress");
+const fs = require("fs-extra");
+const path = require("path");
+
+function getConfigurationByFile(file) {
+  const pathToConfigFile = path.resolve("cypress/config", `${file}.json`);
+
+  if (!fs.existsSync(pathToConfigFile)) {
+    console.log("No custom config file found.");
+    return {};
+  }
+
+  return fs.readJson(pathToConfigFile);
+}
 
 module.exports = defineConfig({
-  projectId: "g4p6er",
-  reporter: "cypress-multi-reporters",
-  reporterOptions: {
-    configFile: "reporter-config.json",
-  },
+  projectId: "mevvq9",
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      const file = config.env.configFile || "";
+
+      return getConfigurationByFile(file);
     },
-    excludeSpecPattern: "cypress/e2e/other/*.js",
     specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}",
-    baseUrl: "https://www.webdriveruniversity.com",
+    excludeSpecPattern: "cypress/e2e/other/*.js",
+    baseUrl: "http://www.webdriveruniversity.com",
     chromeWebSecurity: false,
+    experimentalSessionAndOrigin: true,
     defaultCommandTimeout: 10000,
-    pageLoadTimeout: 12000,
+    pageLoadTimeout: 120000,
     screenshotOnRunFailure: true,
     trashAssetsBeforeRuns: true,
-    videosFolder: "cypress/videos",
+    video: false,
+    videoUploadOnPasses: false,
     viewportHeight: 1080,
     viewportWidth: 1920,
-    video: false,
+    reporter: "cypress-multi-reporters",
+    reporterOptions: {
+      configFile: "reporter-config.json",
+    },
     env: {
+      webdriveruni_homepage: "http://www.webdriveruniversity.com",
       first_name: "Sarah",
-      webdriveruni_homepage: "https://www.webdriveruniversity.com/",
-      autostore_homepage: "https://automationteststore.com/",
     },
   },
 });
