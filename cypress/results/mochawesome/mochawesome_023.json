@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-02-10T19:38:00.123Z",
+    "end": "2024-02-10T19:38:40.683Z",
+    "duration": 40560,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cfb3ffc1-9078-465c-b647-9f2fc2a6bcfc",
+      "title": "",
+      "fullFile": "cypress/e2e/automation-test-store/contact-us.js",
+      "file": "cypress/e2e/automation-test-store/contact-us.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9ebd0b23-eb7e-4090-b686-94726bdc62c9",
+          "title": "Test Contact Us form via Automation Test Store",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should be able to submit a successful submission via contact us form",
+              "fullTitle": "Test Contact Us form via Automation Test Store Should be able to submit a successful submission via contact us form",
+              "timedOut": null,
+              "duration": 13606,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://automationteststore.com/\");\ncy.get('a[href$=\"contact\"]555').click().then(function (linkText) {\n  cy.log(\"Clicked on link using text: \" + linkText.text());\n});\n// cy.xpath('//a[contains(@href,\"contact\")]').click()\ncy.get(\"@user\").then(user => {\n  cy.get(\"#ContactUsFrm_first_name\").type(user.first_name);\n  cy.get(\"#ContactUsFrm_email\").type(user.email);\n});\ncy.get(\"#ContactUsFrm_email\").should(\"have.attr\", \"name\", \"email\");\ncy.get(\"#ContactUsFrm_enquiry\").type(\"Do you provide additional discount on bulk orders?\");\ncy.get(\"button[title='Submit']\").click();\ncy.get(\".mb40 > :nth-child(3)\").should(\"have.text\", \"Your enquiry has been successfully sent to the store owner!\");\ncy.log(\"Test has completed!\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `a[href$=\"contact\"]555`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `a[href$=\"contact\"]555`, but never found it.\n    at Context.eval (webpack://cypress-automation-framework/./cypress/e2e/automation-test-store/contact-us.js:19:9)",
+                "diff": null
+              },
+              "uuid": "4d0ea468-7936-4a65-ae4c-3ce981b322f6",
+              "parentUUID": "9ebd0b23-eb7e-4090-b686-94726bdc62c9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4d0ea468-7936-4a65-ae4c-3ce981b322f6"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 13606,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

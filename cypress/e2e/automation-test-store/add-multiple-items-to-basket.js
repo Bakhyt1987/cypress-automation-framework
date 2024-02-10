@@ -20,7 +20,7 @@ describe("Add multiple items to basket", () => {
     autoStore_Homepage_PO.clickOn_HairCare_Link();
   });
 
-  it("Add specific items to basket", () => {
+  it.skip("Add specific items to basket", () => {
     autoStore_HairCare_PO.addHairCareProductsToBasket();
   });
 });

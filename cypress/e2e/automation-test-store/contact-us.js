@@ -3,16 +3,21 @@
 
 describe("Test Contact Us form via Automation Test Store", () => {
   beforeEach(function () {
+    cy.fixture("userDetails").as("user");
+    // cy.viewport(550, 750);
+  });
+  it("Should be able to submit a successful submission via contact us form", //   retries: { // {
+  //     runMode: 0,
+  //     openMode: 2,
+  //   },
+  // },
+  () => {
     cy.visit("https://automationteststore.com/");
     cy.get('a[href$="contact"]')
       .click()
       .then(function (linkText) {
         cy.log("Clicked on link using text: " + linkText.text());
       });
-    cy.fixture("userDetails").as("user");
-    // cy.viewport(550, 750);
-  });
-  it("Should be able to submit a successful submission via contact us form", () => {
     // cy.xpath('//a[contains(@href,"contact")]').click()
     cy.get("@user").then((user) => {
       cy.get("#ContactUsFrm_first_name").type(user.first_name);
