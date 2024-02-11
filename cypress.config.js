@@ -39,10 +39,10 @@ module.exports = defineConfig({
     reporterOptions: {
       configFile: "reporter-config.json",
     },
-    retries: {
-      runMode: 0,
-      openMode: 0,
-    },
+    // retries: {
+    //   runMode: 0,
+    //   openMode: 0,
+    // },
     env: {
       webdriveruni_homepage: "http://www.webdriveruniversity.com",
       first_name: "Sarah",
